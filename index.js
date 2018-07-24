@@ -1,5 +1,4 @@
 const express = require('express');
-const http = require('http');
 const WebSocket = require('ws');
 
 const app = express();
@@ -7,7 +6,6 @@ var port = process.env.port || 3000;
 
 app.use(express.static(__dirname + '/app'));
 
-const server = http.createServer(app);
 const webSocketServer = new WebSocket.Server({ port: 8080 });
 
 webSocketServer.on('connection', function (socket) {
